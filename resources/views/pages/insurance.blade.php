@@ -2,5 +2,5 @@
 
 @section('content')
 		<h1>{{$title}}</h1>
-		<p>This is the Client Information Page</p>
+		<p>This is the Genesys Insurance Contract Page</p>
 @endsection

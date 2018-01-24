@@ -19,6 +19,14 @@
 });
 */
 
-Route::get('/client', function () {
-    return view('pages.client');
-});
+// Route::get('/client', function () {
+//     return view('pages.index');
+// });
+
+Route::get('/client', 'PagesController@client');
+Route::get('/', 'PagesController@index');
+Route::get('/insurance', 'PagesController@insurance');
+Route::get('/investment', 'PagesController@investment');
+Route::get('/report', 'PagesController@report');
+
+Route::resource('clients', 'ClientsController');
