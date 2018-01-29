@@ -30,3 +30,6 @@ Route::get('/investment', 'PagesController@investment');
 Route::get('/report', 'PagesController@report');
 
 Route::resource('clients', 'ClientsController');
+Auth::routes();
+
+Route::get('/dashboard', 'DashboardController@index');
