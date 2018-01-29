@@ -48,6 +48,7 @@ class ClientsController extends Controller
 		$client->lname = $request->input('lname');
 		$client->dob = $request->input('dob');
 		$client->notes = $request->input('notes');
+		$client->user_id = auth()->user()->id;
 		$client->save();
 
 		return redirect('/clients')->with('success', 'Client Created');

@@ -8,9 +8,11 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
+					<a href="/clients/create" class="btn btn-primary">Create Client</a>
+					<h3>Our Clients</h3>
                     @if (session('status'))
                         <div class="alert alert-success">
-                            {{ session('status') }}
+							{{ session('status') }}
                         </div>
                     @endif
 
