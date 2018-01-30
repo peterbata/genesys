@@ -7,7 +7,7 @@
 		@foreach($clients as $client)
 			<div class="well">
 				<h3><a href="/clients/{{$client->id}}">{{$client->lname . "," . " " .$client->fname}}</a></h3>
-				<small>Creation Date: {{$client->created_at}}</small>
+				<small>Creation Date: {{$client->created_at}} by {{$client->user->name}}</small>
 			</div>
 		@endforeach
 		{{$clients->links()}}

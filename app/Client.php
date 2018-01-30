@@ -14,4 +14,9 @@ class Client extends Model
 
 	// Timestamp
 	public $timestamps = true;
+
+	public function user(){
+		return $this->belongsTo('App\User');
+	}
+
 }

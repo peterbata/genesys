@@ -8,7 +8,7 @@
 		{{$client->notes}}
 	</div>
 	<hr>
-	<small>Creation Date: {{$client->created_at}}</small>
+	<small>Creation Date: {{$client->created_at}} by {{$client->user->name}}</small>
 	<hr>
 	<a href="/clients/{{$client->id}}/edit" class="btn btn-default">Edit</a>
 
