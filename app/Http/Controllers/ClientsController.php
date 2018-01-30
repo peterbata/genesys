@@ -7,6 +7,16 @@ use App\Client;
 
 class ClientsController extends Controller
 {
+	/**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+	}
+	
     /**
      * Display a listing of the resource.
      *
@@ -75,6 +85,12 @@ class ClientsController extends Controller
     public function edit($id)
     {
 		$client =  Client::find($id);
+
+		// Check for correct user
+		if(auth()->user()->id !==$client->user_id){
+			return redirect('/clients')->with('error', 'Unauthorized Page');
+		}
+
 		return view('clients.edit')->with('client', $client);
     }
 
@@ -113,8 +129,13 @@ class ClientsController extends Controller
     public function destroy($id)
     {
 		$client = Client::find($id);
-		$client->delete();
 
+		// Check for correct user
+		if(auth()->user()->id !==$client->user_id){
+			return redirect('/clients')->with('error', 'Unauthorized Page');
+		}
+		
+		$client->delete();
 		return redirect('/clients')->with('success', 'Client Deleted');
     }
 }
